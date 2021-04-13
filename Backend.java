@@ -24,17 +24,21 @@ public class Backend {
   /*
    * Prints all of the buildings in the Map
    */
-  public void printBuildings() {
+  public String getBuildings() {
     
     //Create an enumeration of the keys in the map
     Enumeration<String> enumeration = map.vertices.keys();
-    
-    //Iterate through the keys in the map
+    String buildings = "";
+        //Iterate through the keys in the map
     while(enumeration.hasMoreElements()) {
       String key = enumeration.nextElement();
       //Print the name of the building represented by this element in the map
-      System.out.println(map.vertices.get(key).data);
+      buildings += map.vertices.get(key).data + ", ";
+      //System.out.println(map.vertices.get(key).data);
     }
+    int lastIndex = buildings.lastIndexOf(',');
+    buildings = buildings.substring(0, lastIndex).trim();
+    return buildings;
   }
   
   /*
